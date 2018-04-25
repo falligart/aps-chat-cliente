@@ -24,7 +24,9 @@ public class TelaChat extends javax.swing.JFrame {
     
     public static void atualizar(String msg){
         //if(!Check.checarNull(msg))
-        taChat.append("alou");
+        //taChat.append("alou");
+        System.out.println(msg);
+        taChat.append(msg);
     }
 
     /**
@@ -38,7 +40,7 @@ public class TelaChat extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        JTxtFieldChatInput = new javax.swing.JTextField();
+        txtMensagem = new javax.swing.JTextField();
         btnEnviarChat = new javax.swing.JButton();
         btnEnvioArquivo = new javax.swing.JButton();
         BtnAudio = new javax.swing.JButton();
@@ -60,9 +62,14 @@ public class TelaChat extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/voltar.png"))); // NOI18N
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 70, -1, -1));
-        jPanel1.add(JTxtFieldChatInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 378, 520, -1));
+        jPanel1.add(txtMensagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 378, 520, -1));
 
         btnEnviarChat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/enviar.png"))); // NOI18N
+        btnEnviarChat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarChatActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEnviarChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(655, 378, -1, -1));
 
         btnEnvioArquivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/video.png"))); // NOI18N
@@ -134,7 +141,15 @@ public class TelaChat extends javax.swing.JFrame {
         TelaSelecaoArquivo tsa = new TelaSelecaoArquivo();
         tsa.setVisible(true);
         tsa.setLocationRelativeTo(null);
+        Cliente.iniciarThreadResposta();
     }//GEN-LAST:event_btnEnvioArquivoActionPerformed
+
+    private void btnEnviarChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarChatActionPerformed
+        // TODO add your handling code here:
+        
+        Cliente.enviar(txtMensagem.getText());
+        
+    }//GEN-LAST:event_btnEnviarChatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,7 +203,6 @@ public class TelaChat extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAudio;
-    private javax.swing.JTextField JTxtFieldChatInput;
     private javax.swing.JButton btnEnviarChat;
     private javax.swing.JButton btnEnvioArquivo;
     private javax.swing.JButton btnExit;
@@ -203,5 +217,6 @@ public class TelaChat extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTextArea taChat;
+    private javax.swing.JTextField txtMensagem;
     // End of variables declaration//GEN-END:variables
 }

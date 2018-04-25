@@ -50,11 +50,10 @@ public class Cliente {
 
     public static void iniciar() {
         try {
-            cli = new Socket("192.168.0.53", 2222);
+            cli = new Socket("localhost", 2222);
             out = new PrintStream(cli.getOutputStream());
             in = new BufferedReader(new InputStreamReader(cli.getInputStream()));
             
-            new Thread(new RespostaServidor(cli, out, in)).start();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -62,6 +61,14 @@ public class Cliente {
     
     public static void enviar(String mensagem) {
         out.println(mensagem);
+    }
+    
+    public static String receber() throws IOException {
+        return in.readLine();
+    }
+    
+    public static void iniciarThreadResposta() {
+        new Thread(new RespostaServidor(cli, out, in)).start();
     }
 
 }
