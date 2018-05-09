@@ -25,6 +25,8 @@ public class Cliente {
     private static PrintStream out;
     private static BufferedReader in;
     private static String usuario;
+    private static ObjectOutputStream oos;
+    private static ObjectInputStream ois;
 
     /**
      *
@@ -38,22 +40,40 @@ public class Cliente {
             cli = new Socket("localhost", 2222);
             out = new PrintStream(cli.getOutputStream());
             in = new BufferedReader(new InputStreamReader(cli.getInputStream()));
-            
+            //ois = new ObjectInputStream(cli.getInputStream());
+            //oos = new ObjectOutputStream(cli.getOutputStream());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
     
     public static void enviar(String mensagem) {
-        out.println(mensagem);
+        try {
+            if(oos == null)
+                oos = new ObjectOutputStream(cli.getOutputStream());
+            oos.writeObject(new Mensagem(mensagem));
+            oos.flush();
+            //out.println(mensagem);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
     
-    public static String receber() throws IOException {
-        return in.readLine();
+    public static String receber() {
+        Mensagem recebido = null;
+        try{
+            if(ois == null)
+                ois = new ObjectInputStream(cli.getInputStream());
+        recebido = (Mensagem) ois.readObject();
+        
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return recebido.mensagem;
     }
     
     public static void iniciarThreadResposta() {
-        new Thread(new RespostaServidor(cli, out, in)).start();
+        new Thread(new RespostaServidor(cli, out, in, ois)).start();
     }
     
     public static void armazenarUsuario(String user){

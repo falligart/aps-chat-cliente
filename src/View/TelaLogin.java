@@ -30,15 +30,15 @@ public class TelaLogin extends javax.swing.JFrame {
         Boolean logado = false;
 
         if (!txtUsuario.getText().isEmpty() && !txtSenha.getText().isEmpty()) {
-            Cliente.enviar(txtUsuario.getText());
-            Cliente.enviar(txtSenha.getText());
+
+            Cliente.enviar(txtUsuario.getText()+":"+txtSenha.getText());
             Cliente.armazenarUsuario(txtUsuario.getText());
 
             try {
                 logado = Boolean.parseBoolean(Cliente.receber());
                 msgResposta = Cliente.receber();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+               e.printStackTrace();
             }
 
             if (logado) {
@@ -77,13 +77,12 @@ public class TelaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel4.setFont(new java.awt.Font("Arial", 3, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/logoProjeto.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
+       jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setEnabled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {

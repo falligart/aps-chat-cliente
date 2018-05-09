@@ -22,7 +22,7 @@ public class TelaChat extends javax.swing.JFrame {
     public TelaChat() {
         initComponents();
         Cliente.iniciarThreadResposta();
-        taChat.setEditable(false);       
+       taChat.setEditable(false);       
     }
     
 
@@ -32,7 +32,7 @@ public class TelaChat extends javax.swing.JFrame {
         if (!txtChatLacuna.getText().isEmpty()) {
             Cliente.enviar(txtChatLacuna.getText());
             taChat.append(Cliente.devolverUsuario()+ " : " + txtChatLacuna.getText() + "\n");
-            txtChatLacuna.setText("");
+           txtChatLacuna.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "Campo de texto vacio!!!");
         }
@@ -63,12 +63,12 @@ public class TelaChat extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnSobre = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        btnChat = new javax.swing.JButton();
+       btnChat = new javax.swing.JButton();
         btnContatos = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
         btnPrincipal = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+       jButton4 = new javax.swing.JButton();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -78,8 +78,8 @@ public class TelaChat extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtChatLacuna.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtChatLacuna.addKeyListener(new java.awt.event.KeyAdapter() {
+       txtChatLacuna.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+       txtChatLacuna.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtChatLacunaKeyPressed(evt);
             }
@@ -96,9 +96,9 @@ public class TelaChat extends javax.swing.JFrame {
         jPanel1.add(btnEnviarChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 40, -1));
 
         taChat.setColumns(20);
-        taChat.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+       taChat.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         taChat.setLineWrap(true);
-        taChat.setRows(5);
+       taChat.setRows(5);
         jScrollPane2.setViewportView(taChat);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 580, 290));
@@ -120,7 +120,6 @@ public class TelaChat extends javax.swing.JFrame {
         btnOnlinesDisabled1.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         btnOnlinesDisabled1.setEnabled(false);
         jPanel1.add(btnOnlinesDisabled1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 390, 40));
-
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 660, 450));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
@@ -166,7 +165,7 @@ public class TelaChat extends javax.swing.JFrame {
             }
         });
 
-        btnExit.setBackground(new java.awt.Color(204, 204, 204));
+       btnExit.setBackground(new java.awt.Color(204, 204, 204));
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("Sair");
         btnExit.setToolTipText("Encerrar sessão");
@@ -181,7 +180,7 @@ public class TelaChat extends javax.swing.JFrame {
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/logoProjeto (1).png"))); // NOI18N
 
-        btnPrincipal.setBackground(new java.awt.Color(204, 204, 204));
+       btnPrincipal.setBackground(new java.awt.Color(204, 204, 204));
         btnPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         btnPrincipal.setText("Principal");
         btnPrincipal.setToolTipText("Home");
@@ -190,7 +189,7 @@ public class TelaChat extends javax.swing.JFrame {
         btnPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrincipalActionPerformed(evt);
-            }
+           }
         });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -200,11 +199,11 @@ public class TelaChat extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                   .addComponent(btnPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnContatos, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnChat, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                   .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(Logo)))
                 .addContainerGap(54, Short.MAX_VALUE))
@@ -215,7 +214,7 @@ public class TelaChat extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnChat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(btnChat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnContatos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -223,7 +222,7 @@ public class TelaChat extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(72, Short.MAX_VALUE))
-        );
+       );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 84, 270, -1));
 
@@ -252,8 +251,7 @@ public class TelaChat extends javax.swing.JFrame {
     private void cbBoxArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBoxArquivoActionPerformed
         // TODO add your handling code here:
         if (cbBoxArquivo.getSelectedItem() == "MP4") {
-            //TelaSelecaoArquivo tsa = new TelaSelecaoArquivo();
-
+           //TelaSelecaoArquivo tsa = new TelaSelecaoArquivo();
         } else if (cbBoxArquivo.getSelectedItem() == "MP3") {
             //TelaSeleçãoArquivo tsa = new TelaSeleçãoArquivo();
         }
@@ -269,13 +267,13 @@ public class TelaChat extends javax.swing.JFrame {
         ts.setVisible(true);
     }//GEN-LAST:event_btnSobreActionPerformed
 
-    private void btnChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChatActionPerformed
-        // TODO add your handling code here:
+   private void btnChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChatActionPerformed
+       // TODO add your handling code here:
         TelaChat tc = new TelaChat();
         tc.setVisible(true);
         this.dispose();
 
-    }//GEN-LAST:event_btnChatActionPerformed
+   }//GEN-LAST:event_btnChatActionPerformed
 
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
         // TODO add your handling code here:
@@ -287,7 +285,7 @@ public class TelaChat extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         int dialog = JOptionPane.showConfirmDialog(null, "Deseja realmente sair", "Exit", JOptionPane.YES_NO_OPTION);
-        if (dialog == JOptionPane.YES_OPTION) {
+       if (dialog == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
     }//GEN-LAST:event_btnExitActionPerformed
@@ -298,14 +296,12 @@ public class TelaChat extends javax.swing.JFrame {
             enviarMsg();
         }
     }//GEN-LAST:event_txtChatLacunaKeyPressed
-
     private void btnContatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContatosActionPerformed
         // TODO add your handling code here:
         TelaOnlines to = new TelaOnlines();
         to.setVisible(true);
         
     }//GEN-LAST:event_btnContatosActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -345,7 +341,7 @@ public class TelaChat extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
-    private javax.swing.JButton btnChat;
+   private javax.swing.JButton btnChat;
     private javax.swing.JButton btnContatos;
     private javax.swing.JButton btnEnviarChat;
     private javax.swing.JButton btnExit;
@@ -354,7 +350,7 @@ public class TelaChat extends javax.swing.JFrame {
     private javax.swing.JButton btnSobre;
     private javax.swing.JComboBox<String> cbBoxArquivo;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
+   private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
